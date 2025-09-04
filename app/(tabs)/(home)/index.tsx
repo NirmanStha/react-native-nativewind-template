@@ -1,10 +1,11 @@
 import React from "react";
-import { Text, View } from "react-native";
+import { Text } from "react-native";
+import { SafeAreaView } from "react-native-safe-area-context";
 const Index = () => {
   return (
-    <View className="bg-black items-center justify-center h-full">
-      <Text className="text-white">This is index</Text>
-    </View>
+    <SafeAreaView className="bg-white items-center justify-center h-full">
+      <Text className="text-black">This is index</Text>
+    </SafeAreaView>
   );
 };
 

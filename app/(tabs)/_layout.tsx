@@ -1,18 +1,21 @@
 import { Tabs } from "expo-router";
-import AvatarMenu from "../components/AvatarMenu";
+import { getRouteTitle } from "../../lib/utils/navigation";
+import CustomHeader from "../_components/navigation/CustomHeader";
 import "../globals.css";
+
 export default function TabLayout() {
   return (
-    <Tabs
-      screenOptions={{
-        headerRightContainerStyle: {
-          paddingRight: 16,
-        },
-        headerRight: () => <AvatarMenu />,
-      }}
-    >
-      <Tabs.Screen name="(home)" options={{ title: "Home" }} />
-      <Tabs.Screen name="Setting" options={{ title: "Movie" }} />
-    </Tabs>
+    <>
+      <Tabs
+        screenOptions={{
+          header: (props) => (
+            <CustomHeader title={getRouteTitle(props.route.name)} />
+          ),
+        }}
+      >
+        <Tabs.Screen name="(home)" />
+        <Tabs.Screen name="Setting" />
+      </Tabs>
+    </>
   );
 }
